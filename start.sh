@@ -7,7 +7,7 @@ rm -rf /workspace && \
   ln -s /runpod-volume /workspace
 
 echo "Starting WebUI API"
-source /workspace/venv/bin/activate
+# source /workspace/venv/bin/activate
 TCMALLOC="$(ldconfig -p | grep -Po "libtcmalloc.so.\d" | head -n 1)"
 export LD_PRELOAD="${TCMALLOC}"
 export PYTHONUNBUFFERED=true
@@ -26,7 +26,7 @@ python /workspace/stable-diffusion-webui/webui.py \
   --skip-version-check \
   --no-hashing \
   --no-download-sd-model > /workspace/logs/webui.log 2>&1 &
-deactivate
+# deactivate
 
 echo "Starting RunPod Handler"
-python3 -u /rp_handler.py
+python -u /rp_handler.py
