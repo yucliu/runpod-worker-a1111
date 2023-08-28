@@ -1,4 +1,5 @@
+huggingface_hub
 Pillow
-requests
 python-dotenv
+requests
 runpod>=0.10.0
